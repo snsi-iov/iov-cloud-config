@@ -1,0 +1,4 @@
+# 這是global context config
+info: 
+  foo: bar
+raw: true
