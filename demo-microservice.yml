@@ -1,0 +1,36 @@
+
+---
+########## development ##########
+spring:
+  profiles: development
+  
+  cloud:
+    config:
+      enabled: false
+      
+eureka:
+  client:
+    enabled: false
+
+
+---
+####### production #########
+spring:
+  profiles: production
+
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: @configServer.git.url@
+          
+eureka:
+  client:
+    enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://@eurekaServer.host@:@eurekaServer.port@/eureka/
+      
+       
